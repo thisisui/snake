@@ -6,6 +6,7 @@ const socket = io("http://127.0.0.1:3000");
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
+socket.on("gameOver", handleGameOver);
 
 const gameScreen = document.getElementById("gameScreen");
 
@@ -59,4 +60,8 @@ function handleInit(msg) {
 function handleGameState(gameState) {
   gameState = JSON.parse(gameState);
   requestAnimationFrame(() => paintGame(gameState));
+}
+
+function handleGameOver() {
+  alert("End of the game! you lose!");
 }
