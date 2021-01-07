@@ -32,7 +32,7 @@ function createGameState() {
       },
       {
         pos: {
-          x: 18,
+          x: 10,
           y: 10,
         },
         vel: {
@@ -40,9 +40,9 @@ function createGameState() {
           y: 0,
         },
         snake: [
-          { x: 20, y: 10 },
-          { x: 19, y: 10 },
-          { x: 18, y: 10 },
+          { x: 5, y: 8 },
+          { x: 6, y: 8 },
+          { x: 7, y: 8 },
         ],
       },
     ],
@@ -55,7 +55,6 @@ function gameLoop(state) {
   if (!state) {
     return;
   }
-
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
 
