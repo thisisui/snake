@@ -17,16 +17,16 @@ io.on("connection", (client) => {
   client.on("joinGame", handleJoinGame);
 
   function handleJoinGame(gameCode) {
-    const room = io.sockets.adapter.rooms[gameCode];
+    const room = io.sockets.adapter.rooms.get(gameCode);
 
     let allUsers;
     if (room) {
-      allUsers = room.sockets;
+      allUsers = room.size;
     }
 
     let numClients = 0;
     if (allUsers) {
-      numClients = Object.keys(allUsers).length;
+      numClients = allUsers;
     }
 
     if (numClients === 0) {
