@@ -3,6 +3,7 @@ const { GRID_SIZE } = require("./constants");
 module.exports = {
   createGameState,
   gameLoop,
+  getUpdatedVelocity,
 };
 
 function createGameState() {
@@ -83,4 +84,25 @@ function randomFood(state) {
   }
 
   state.food = food;
+}
+
+function getUpdatedVelocity(keyCode) {
+  switch (keyCode) {
+    case 37: {
+      // left
+      return { x: -1, y: 0 };
+    }
+    case 38: {
+      // down
+      return { x: 0, y: -1 };
+    }
+    case 39: {
+      // right
+      return { x: 1, y: 0 };
+    }
+    case 40: {
+      // up
+      return { x: 0, y: 1 };
+    }
+  }
 }
